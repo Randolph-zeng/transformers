@@ -543,7 +543,7 @@ def create_circleci_config(folder=None):
     os.environ["test_preparation_dir"] = folder
     jobs = []
 
-    all_test_list = " ".join(sorted([x for x in glob.glob("tests/models/*/**.py") if "test_modeling_" in x]))
+    all_test_list = " ".join(sorted([x for x in glob.glob("tests/models/*/**.py") if "/test_" in x]))
     # all_test_list = files.split(" ")
 
     # all_test_file = os.path.join(folder, "test_list.txt")
@@ -556,7 +556,7 @@ def create_circleci_config(folder=None):
     if len(all_test_list) > 0:
         jobs.extend(PIPELINE_TESTS)
 
-    test_list = " ".join(sorted([x for x in glob.glob("tests/models/*/**.py") if "test_modeling_" in x]))
+    test_list = " ".join(sorted([x for x in glob.glob("tests/models/*/**.py") if "/test_" in x]))
     # test_list = files.split(" ")
 
     # test_file = os.path.join(folder, "filtered_test_list.txt")
